@@ -5,6 +5,7 @@ export interface Post {
   content: string;
   date: string;
   category: string;
+  author: string;
 }
 
 export const posts: Post[] = [
@@ -25,6 +26,7 @@ Một số ưu điểm nổi bật của Next.JS:
 Với App Router mới (từ Next.JS 13+), việc tạo routes trở nên đơn giản và linh hoạt hơn bao giờ hết.`,
     date: "2025-01-15",
     category: "Công nghệ",
+    author: "Ngô Văn Phong",
   },
   {
     slug: "hoc-tailwind-css",
@@ -46,6 +48,7 @@ Bạn viết trực tiếp trong HTML:
 - Tạo giao diện nhất quán và có khả năng bảo trì cao`,
     date: "2025-01-20",
     category: "Công nghệ",
+    author: "Ngô Văn Phong",
   },
   {
     slug: "kinh-nghiem-hoc-lap-trinh",
@@ -67,6 +70,66 @@ Tham gia các cộng đồng lập trình để học hỏi và chia sẻ kinh n
 Lỗi là một phần quan trọng của quá trình học. Hãy coi debug như một kỹ năng cần phải rèn luyện.`,
     date: "2025-02-01",
     category: "Học tập",
+    author: "Ngô Văn Phong",
+  },
+  {
+    slug: "typescript-cac-tip-hay",
+    title: "TypeScript Tips & Tricks — Nâng cao kỹ năng",
+    excerpt:
+      "Các mẹo hữu ích khi làm việc với TypeScript để viết code an toàn hơn.",
+    content: `TypeScript là một superset của JavaScript cung cấp kiểm tra kiểu (type checking) tại compile-time.
+
+Dưới đây là một số tips hữu ích:
+
+1. Sử dụng Union Types
+type Status = "success" | "error" | "loading";
+
+2. Interfaces vs Types
+- Interfaces: Tập trung vào định nghĩa cấu trúc đối tượng
+- Types: Linh hoạt hơn, có thể là primitives, unions, v.v.
+
+3. Generics - Tạo code tái sử dụng
+function getValue<T>(item: T[], index: number): T {
+  return item[index];
+}
+
+4. Utility Types
+- Partial<T>: Làm tất cả thuộc tính tùy chọn
+- Pick<T, K>: Chọn một số thuộc tính từ type
+- Record<K, T>: Tạo object với keys cụ thể`,
+    date: "2025-02-10",
+    category: "Công nghệ",
+    author: "Ngô Văn Phong",
+  },
+  {
+    slug: "phat-trien-web-2025",
+    title: "Xu hướng phát triển web năm 2025",
+    excerpt:
+      "Những công nghệ và xu hướng mới mà lập trình viên web nên chú ý.",
+    content: `Những xu hướng phát triển web trong năm 2025:
+
+1. AI Integration Everywhere
+Chatbots, code generation, image analysis — AI đang thay đổi cách chúng ta phát triển web.
+
+2. Web3 & Blockchain
+Smart contracts, NFTs, Decentralized apps vẫn tiếp tục phát triển.
+
+3. Performance & Core Web Vitals
+Google prioritize trang web nhanh. Optimize Largest Contentful Paint, Cumulative Layout Shift, FID.
+
+4. Edge Computing
+Chạy code gần người dùng hơn với Edge Functions (Vercel, Cloudflare).
+
+5. React Server Components
+Tối ưu hóa rendering, giảm JS sent to client.
+
+6. Frameworks Evolution
+Next.JS, Remix, SvelteKit tiếp tục cải thiện developer experience.
+
+Nên theo dõi các blog tech, conferences để cập nhật thêm!`,
+    date: "2025-02-15",
+    category: "Công nghệ",
+    author: "Ngô Văn Phong",
   },
 ];
 

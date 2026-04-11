@@ -31,7 +31,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <span className="text-sm text-gray-400">{post.date}</span>
         </div>
 
-        <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
+        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+        <p className="text-sm text-gray-500 mb-6">Tác giả: <strong>{post.author}</strong></p>
 
         <div className="prose max-w-none text-gray-700 whitespace-pre-line">
           {post.content}
