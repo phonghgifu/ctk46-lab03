@@ -1,4 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bài Thực Hành 1 - Các Công Nghệ Mới Trong PTPM
+
+## Thông Tin Dự Án
+
+- **Sinh viên**: Ngô Văn Phong
+- **MSSV**: 2212440
+- **Lớp**: CTK46A
+- **Môn học**: Các công nghệ mới trong PTPM
+- **Năm**: 2026
+
+## Mô Tả
+
+Đây là project [Next.js](https://nextjs.org) được tạo ra nhằm học tập các công nghệ mới trong phát triển phần mềm, bao gồm:
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Git & GitHub
+
+This project was bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
