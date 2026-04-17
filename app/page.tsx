@@ -23,7 +23,7 @@ export default function HomePage() {
 
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Xin chào! Tôi là{" "}
-          <span className="text-blue-600">Phong Nguyen</span>
+          <span className="text-blue-600">Ngô Văn Phong</span>
         </h1>
         <p className="text-lg text-gray-600 mb-3">
           MSSV: <strong>2212440</strong> — Lớp <strong>CTK46A</strong>
