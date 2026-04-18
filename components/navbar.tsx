@@ -47,6 +47,12 @@ export default function Navbar() {
               Lưu bút
             </Link>
             <Link
+              href="/pokemon"
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              Pokédex
+            </Link>
+            <Link
               href="/contact"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >

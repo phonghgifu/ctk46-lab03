@@ -58,21 +58,3 @@ export default async function CatchAllPage({ params }: CatchAllPageProps) {
     </div>
   );
 }
-        <ul className="space-y-2 text-sm">
-          <li><strong>Number of segments:</strong> {slug.length}</li>
-          <li><strong>Segments:</strong> {JSON.stringify(slug)}</li>
-          <li><strong>Full path:</strong> /blog/{slug.join("/")}</li>
-        </ul>
-      </div>
-      <p className="text-gray-500 mb-6 text-sm">
-        Thử truy cập: /blog/a/b/c, /blog/x/y/z/w để thấy catch-all route hoạt động!
-      </p>
-      <Link
-        href="/blog"
-        className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block"
-      >
-        Quay lại Blog
-      </Link>
-    </div>
-  );
-}
