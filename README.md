@@ -1,4 +1,4 @@
-# BÀI THỰC HÀNH 2 NEXT.JS — NỀN TẢNG & ROUTING
+# BÀI THỰC HÀNH 4 NEXT.JS — SERVER ACTIONS & ZOD VALIDATION
 
 ## Thông Tin Dự Án
 
@@ -10,14 +10,39 @@
 
 ## Mô Tả
 
-Đây là project [Next.js](https://nextjs.org) được tạo ra nhằm học tập các công nghệ mới trong phát triển phần mềm, bao gồm:
-- React
-- Next.js
-- TypeScript
-- Tailwind CSS
+Bài thực hành 4 tập trung vào việc xây dựng form với **Server Actions**, **Zod validation** và **useActionState hook**. Project bao gồm:
+- React 19 & useActionState Hook
+- Next.js Server Actions ("use server")
+- Zod Schema Validation
+- TypeScript Type Safety
+- Form Handling (Guestbook & Contact)
+- API Routes (GET, POST, DELETE)
+- Tailwind CSS & shadcn/ui Components
 - Git & GitHub
 
 This project was bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Cấu Trúc Dự Án - Phần 4
+
+### Server Actions
+- `app/guestbook/actions.ts` - Tạo & xóa guestbook entries với Zod validation
+- `app/contact/actions.ts` - Gửi tin nhắn contact với email validation
+
+### Client Components
+- `components/guestbook-form.tsx` - Form với useActionState hook
+- `components/delete-button.tsx` - Nút xóa với confirm dialog
+
+### Server Components
+- `app/guestbook/page.tsx` - Trang guestbook (Server Component)
+- `app/contact/page.tsx` - Trang contact form
+
+### API Routes
+- `app/api/guestbook/route.ts` - GET all, POST new entry
+- `app/api/guestbook/[id]/route.ts` - DELETE entry by ID
+
+### Data & Validation
+- `data/guestbook.ts` - GuestbookEntry interface & sample data
+- Zod schemas cho form validation
 
 ## Getting Started
 
@@ -41,15 +66,29 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this lab:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Server Actions](https://nextjs.org/docs/app/building-your-application/data-mutation/server-actions) - Learn about Server Actions
+- [Zod Documentation](https://zod.dev) - Schema validation library
+- [React useActionState Hook](https://react.dev/reference/react/useActionState) - Handle form submission states
+- [Next.js API Routes](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) - Build API endpoints
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out [the ctk46-lab03 GitHub repository](https://github.com/phonghgifu/ctk46-lab03) for the complete implementation!
 
-## Deploy on Vercel
+## Tài Liệu Hướng Dẫn
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `PHAN_4_HUONG_DAN.md` - Hướng dẫn chi tiết Phần 4
+- `PHAN_4_TRINH_BAY.md` - Trình bày chi tiết các tính năng
+- `PHAN_4_BAI_TAP.md` - Bài tập thực hành
+- `PHAN_4_XEM_THAY_DOI.md` - Chi tiết các thay đổi
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key Concepts
+
+- **Server Actions**: Các hàm server-side được gọi từ client
+- **Zod Validation**: Schema validation với error messages
+- **useActionState Hook**: Quản lý form state và loading
+- **useFormStatus**: Theo dõi form submission status
+- **TypeScript Interfaces**: Type-safe data handling
+- **API Routes**: RESTful endpoints cho CRUD operations
+- **Error Handling**: Form error display & error boundaries
