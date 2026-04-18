@@ -41,6 +41,12 @@ export default function Navbar() {
               Kỹ năng
             </Link>
             <Link
+              href="/guestbook"
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              Lưu bút
+            </Link>
+            <Link
               href="/contact"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
