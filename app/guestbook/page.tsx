@@ -12,6 +12,9 @@ export default function GuestbookPage() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  
+  // State cho delete loading
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   // Fetch danh sách lời nhắn
   async function fetchEntries() {
@@ -64,6 +67,7 @@ export default function GuestbookPage() {
   async function handleDelete(id: string) {
     if (!confirm("Bạn có chắc muốn xóa lời nhắn này?")) return;
 
+    setDeletingId(id);
     try {
       const res = await fetch(`/api/guestbook/${id}`, {
         method: "DELETE",
@@ -74,6 +78,8 @@ export default function GuestbookPage() {
       await fetchEntries();
     } catch (err) {
       alert("Không thể xóa lời nhắn. Vui lòng thử lại.");
+    } finally {
+      setDeletingId(null);
     }
   }
 
@@ -166,9 +172,10 @@ export default function GuestbookPage() {
                   </span>
                   <button
                     onClick={() => handleDelete(entry.id)}
-                    className="text-xs text-red-400 hover:text-red-600 transition-colors"
+                    disabled={deletingId === entry.id}
+                    className="text-xs text-red-400 hover:text-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Xóa
+                    {deletingId === entry.id ? "Đang xóa..." : "Xóa"}
                   </button>
                 </div>
               </div>
