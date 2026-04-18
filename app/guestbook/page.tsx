@@ -15,6 +15,10 @@ export default function GuestbookPage() {
   
   // State cho delete loading
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  
+  // State cho phân trang
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 5;
 
   // Fetch danh sách lời nhắn
   async function fetchEntries() {
@@ -55,6 +59,7 @@ export default function GuestbookPage() {
       // Reset form và tải lại danh sách
       setName("");
       setMessage("");
+      setCurrentPage(1);  // Reset về trang 1
       await fetchEntries();
     } catch (err) {
       alert("Không thể gửi lời nhắn. Vui lòng thử lại.");
@@ -75,6 +80,7 @@ export default function GuestbookPage() {
 
       if (!res.ok) throw new Error("Lỗi khi xóa");
 
+      setCurrentPage(1);  // Reset về trang 1
       await fetchEntries();
     } catch (err) {
       alert("Không thể xóa lời nhắn. Vui lòng thử lại.");
@@ -82,6 +88,12 @@ export default function GuestbookPage() {
       setDeletingId(null);
     }
   }
+
+  // Logic phân trang
+  const totalPages = Math.ceil(entries.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedEntries = entries.slice(startIndex, endIndex);
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
@@ -157,7 +169,7 @@ export default function GuestbookPage() {
             {entries.length} lời nhắn
           </p>
 
-          {entries.map((entry) => (
+          {paginatedEntries.map((entry) => (
             <div
               key={entry.id}
               className="border rounded-lg p-4 hover:shadow-sm transition-shadow"
@@ -187,6 +199,31 @@ export default function GuestbookPage() {
             <p className="text-center text-gray-400 py-8">
               Chưa có lời nhắn nào. Hãy là người đầu tiên!
             </p>
+          )}
+
+          {/* Phân trang */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-4 mt-8 pt-6 border-t">
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                ← Trang trước
+              </button>
+              
+              <span className="text-sm text-gray-600">
+                Trang <strong>{currentPage}</strong> / <strong>{totalPages}</strong>
+              </span>
+              
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                Trang sau →
+              </button>
+            </div>
           )}
         </div>
       )}
